@@ -1,0 +1,128 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.app-Container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #abc3ba80;
+  display: grid;
+  grid-template-columns: 28% 70%;
+  gap: 10px;
+}
+
+.form-Container {
+  border-right: 1px solid rgb(0, 0, 0);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.table-container {
+  display: grid;
+  grid-template-columns: 5% 86% 5%;
+  grid-template-rows: 5% 86% 5%;
+  justify-content: center;
+  align-items: start;
+}
+
+form {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 33%);
+  justify-content: space-evenly;
+  justify-items: center;
+  align-items: center;
+}
+
+input,
+select {
+  width: 100%;
+  height: 50px;
+  padding: 5px;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 5px;
+}
+
+label {
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+}
+
+button {
+  width: 86%;
+  height: 50px;
+  padding: 5px;
+  margin-bottom: 30px;
+  align-self: flex-end;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: 'Roboto', sans-serif;
+  background-color: #245072;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+
+button:hover {
+  background-color: #1f3d4a;
+}
+button:active {
+  box-shadow: none;
+}
+
+.input-group {
+  width: 90%;
+}
+
+table {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: 'Roboto', sans-serif;
+
+  border: 1px solid rgb(0, 0, 0);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05),
+    0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+
+.table-ingreso {
+  background-color: #4cd463;
+}
+
+.table-egreso {
+  background-color: #e8574d;
+}
+
+thead {
+  background-color: #406478;
+}
+
+th,
+td {
+  font-size: 1.2rem;
+  padding: 10px;
+  text-align: center;
+  color: #fff;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+td:last-child {
+  text-align: right;
+}
+
+tfoot {
+  background-color: #5c7f91d8;
+}
+
+tfoot td {
+  text-align: right;
+}
