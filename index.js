@@ -25,7 +25,7 @@ const renderTabla = () => {
   let tabla = '';
   data.forEach((item) => {
     let fila = document.createElement('tr');
-    fila.classList.add(item.tipo === 'ingreso' ? 'table-ingreso' : 'table-egreso');
+    fila.classList.add(item.tipo);
     const ImporteFila = `$ ${parseFloat(item.importe).toFixed(2)}`;
     fila.innerHTML = `
       <td>${item.descripcion}</td>
@@ -35,7 +35,7 @@ const renderTabla = () => {
     tabla += fila.outerHTML;
   });
   const total = data.reduce(
-    (total, item) => (item.tipo === 'ingreso' ? (total += parseFloat(item.importe)) : (total -= parseFloat(item.importe))),
+    (total, item) => (item.tipo === 'Ingreso' ? (total += parseFloat(item.importe)) : (total -= parseFloat(item.importe))),
     0
   );
   totalTabla.textContent = `$ ${total.toFixed(2)}`;
@@ -73,4 +73,13 @@ document.addEventListener('DOMContentLoaded', () => {
 form.addEventListener('submit', (e) => {
   e.preventDefault();
   saveData();
+});
+
+tbody.addEventListener('dblclick', (e) => {
+  if (e.target.tagName === 'TD') {
+    const index = e.target.parentElement.rowIndex;
+    data.splice(index - 1, 1);
+    localStorage.setItem('data', JSON.stringify(data));
+    renderTabla();
+  }
 });

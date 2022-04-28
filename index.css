@@ -10,7 +10,7 @@
   background-color: #abc3ba80;
   display: grid;
   grid-template-columns: 28% 70%;
-  gap: 10px;
+  grid-template-rows: 100%;
 }
 
 .form-Container {
@@ -20,14 +20,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.table-container {
-  display: grid;
-  grid-template-columns: 5% 86% 5%;
-  grid-template-rows: 5% 86% 5%;
-  justify-content: center;
-  align-items: start;
 }
 
 form {
@@ -82,23 +74,36 @@ button:active {
   width: 90%;
 }
 
-table {
+.table-container {
+  display: grid;
+  grid-template-columns: 5% 86% 5%;
+  grid-template-rows: 5% 86% 5%;
+  justify-content: center;
+  align-items: start;
+}
+
+.table {
   grid-column: 2/3;
   grid-row: 2/3;
+  height: 99%;
+  font-family: 'Roboto', sans-serif;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-  font-family: 'Roboto', sans-serif;
-
   border: 1px solid rgb(0, 0, 0);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05),
     0px 30px 20px rgba(0, 0, 0, 0.05);
 }
 
-.table-ingreso {
+.Ingreso {
   background-color: #4cd463;
 }
 
-.table-egreso {
+.Egreso {
   background-color: #e8574d;
 }
 
@@ -125,4 +130,17 @@ tfoot {
 
 tfoot td {
   text-align: right;
+}
+
+.Info {
+  grid-column: span 4;
+  grid-row: 3/4;
+  height: 100%;
+  font-size: 1.5rem;
+  color: #fff;
+  background-color: rgb(7, 7, 7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

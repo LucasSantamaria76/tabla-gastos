@@ -21,8 +21,8 @@
         <div class="form-group">
           <label for="tipo">Ingrese tipo operación</label>
           <select name="tipo" id="tipo">
-            <option value="egreso" selected>Egreso</option>
-            <option value="ingreso">Ingreso</option>
+            <option value="Egreso" selected>Egreso</option>
+            <option value="Ingreso">Ingreso</option>
           </select>
         </div>
         <div class="input-group">
@@ -33,22 +33,26 @@
       </form>
     </div>
     <div class="table-container">
-      <table>
-        <thead>
-          <tr>
-            <th>Tipo</th>
-            <th>Descripción</th>
-            <th>Importe</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div class="table">
+        <table>
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Descripción</th>
+              <th>Importe</th>
+            </tr>
+          </thead>
+          <tbody>
 
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colspan="2">Total</td>
-            <td id="total"></td>
-          </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="2">Total</td>
+              <td id="total"></td>
+            </tr>
+        </table>
+      </div>
+      <div class="Info">Dloble click para eliminar fila</div>
     </div>
   </div>
   <script src="index.js"></script>
