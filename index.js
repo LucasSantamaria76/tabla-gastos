@@ -18,51 +18,63 @@ const inputImporte = document.getElementById('importe');
 const form = document.getElementById('form');
 const tbody = document.querySelector('tbody');
 const totalTabla = document.querySelector('#total');
+const inputFecha = document.getElementById('fecha');
 
 let data = [];
 
+const limpiarTabla = () => {
+  while (tbody.firstChild) tbody.removeChild(tbody.firstChild);
+};
+
 const renderTabla = () => {
-  let tabla = '';
-  data.forEach((item) => {
+  limpiarTabla();
+  data.forEach((mov) => {
     let fila = document.createElement('tr');
-    fila.classList.add(item.tipo);
-    const ImporteFila = `$ ${parseFloat(item.importe).toFixed(2)}`;
-    fila.innerHTML = `
-      <td>${item.descripcion}</td>
-      <td>${item.tipo}</td>
-      <td>${ImporteFila}</td>
-      `;
-    tabla += fila.outerHTML;
+    fila.classList.add(mov.tipo);
+    Object.keys(mov).forEach((key) => {
+      let celda = document.createElement('td');
+      const text = document.createTextNode(key === 'importe' ? `$ ${parseFloat(mov[key]).toFixed(2)}` : mov[key]);
+      celda.appendChild(text);
+      fila.appendChild(celda);
+    });
+    tbody.appendChild(fila);
   });
   const total = data.reduce(
     (total, item) => (item.tipo === 'Ingreso' ? (total += parseFloat(item.importe)) : (total -= parseFloat(item.importe))),
     0
   );
   totalTabla.textContent = `$ ${total.toFixed(2)}`;
-  tbody.innerHTML = tabla;
 };
 
-const saveData = () => {
-  const { descripcion, tipo, importe } = getData();
-  if (importe && descripcion) data.push({ descripcion, tipo, importe });
-  else {
-    alert('Faltan datos');
-    return;
-  }
-
-  localStorage.setItem('data', JSON.stringify(data));
-  console.log('data', data);
-  inputDescr.value = '';
-  inputImporte.value = '';
-  renderTabla();
+const limpiarCampos = () => {
+  [inputDescr, inputImporte].forEach((input) => (input.value = ''));
   inputDescr.focus();
 };
 
+const saveData = () => {
+  const newMov = getData();
+
+  if (!newMov) return alert('Completa todos los datos');
+
+  data.push(newMov);
+  localStorage.setItem('data', JSON.stringify(data));
+  renderTabla();
+  limpiarCampos();
+};
+
 const getData = () => {
-  const descripcion = inputDescr.value;
-  const tipo = inputTipo.value;
-  const importe = inputImporte.value;
-  return { descripcion, tipo, importe };
+  const newMov = {
+    descripcion: inputDescr.value,
+    tipo: inputTipo.value,
+    fecha: inputFecha.value.split('-').reverse().join('/'),
+    importe: inputImporte.value,
+  };
+
+  if (!newMov.descripcion.trim() || !newMov.fecha || newMov.importe <= 0) {
+    return null;
+  } else {
+    return newMov;
+  }
 };
 
 document.addEventListener('DOMContentLoaded', () => {

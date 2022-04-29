@@ -28,6 +28,7 @@
         <div class="input-group">
           <input type="text" name="descripcion" id="descripcion" placeholder="Descripción">
           <input type="number" name="importe" id="importe" placeholder="Importe" autocomplete="off">
+          <input type="date" name="fecha" id="fecha">
         </div>
         <button type="submit">Guardar</button>
       </form>
@@ -39,6 +40,7 @@
             <tr>
               <th>Tipo</th>
               <th>Descripción</th>
+              <th>Fecha</th>
               <th>Importe</th>
             </tr>
           </thead>
@@ -47,12 +49,12 @@
           </tbody>
           <tfoot>
             <tr>
+              <td>Doble click sobre la fila para eliminarla</td>
               <td colspan="2">Total</td>
               <td id="total"></td>
             </tr>
         </table>
       </div>
-      <div class="Info">Dloble click para eliminar fila</div>
     </div>
   </div>
   <script src="index.js"></script>

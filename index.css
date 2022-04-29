@@ -7,7 +7,7 @@
 .app-Container {
   height: 100vh;
   width: 100vw;
-  background-color: #abc3ba80;
+  background-color: #abc3bad6;
   display: grid;
   grid-template-columns: 28% 70%;
   grid-template-rows: 100%;
@@ -15,6 +15,8 @@
 
 .form-Container {
   border-right: 1px solid rgb(0, 0, 0);
+  box-shadow: 7px 1px 12px -2px rgba(0, 0, 0, 0.75);
+  background-color: #6facc1cc;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -84,8 +86,8 @@ button:active {
 
 .table {
   grid-column: 2/3;
-  grid-row: 2/3;
-  height: 99%;
+  grid-row: 2/4;
+  height: 100%;
   font-family: 'Roboto', sans-serif;
   overflow-y: auto;
 }
@@ -95,8 +97,6 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   border: 1px solid rgb(0, 0, 0);
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05),
-    0px 30px 20px rgba(0, 0, 0, 0.05);
 }
 
 .Ingreso {
@@ -132,15 +132,6 @@ tfoot td {
   text-align: right;
 }
 
-.Info {
-  grid-column: span 4;
-  grid-row: 3/4;
-  height: 100%;
-  font-size: 1.5rem;
-  color: #fff;
-  background-color: rgb(7, 7, 7);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+tfoot td:first-child {
+  text-align: center;
 }
